@@ -1,1 +1,0 @@
-# pettycash_manager_frontend
