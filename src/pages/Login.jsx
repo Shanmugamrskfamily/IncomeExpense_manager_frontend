@@ -14,7 +14,7 @@ const Login = () => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
     const userName = localStorage.getItem('userName');
-
+    const avatar=localStorage.getItem('avatar');
     if (token && userId && userName) {
       navigate('/dashboard');
     }
@@ -34,16 +34,17 @@ const Login = () => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userId', response.data.userId);
         localStorage.setItem('userName', response.data.userName);
+        localStorage.setItem('avatar',response.data.avatar);
         toast.success('Login Successful'); // Display a success message
         navigate('/dashboard'); // Redirect to dashboard or any authorized route
       } else {
         // Handle other status codes or display a message
-        console.log('Login failed');
-        toast.error('Login failed'); // Display a login failure message
+        console.log('Login failed, Invalid Email or Password');
+        toast.error('Login failed, Invalid Email or Password'); // Display a login failure message
       }
     } catch (error) {
       console.error('Login Error: ', error);
-      toast.error('Login Error:',error); // Display a general error message
+      toast.error(`Login Error: Invalid Email or Password!`); // Display a general error message
       // Handle the error or display a message
     }
   };

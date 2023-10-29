@@ -86,14 +86,14 @@ const Signup = () => {
           className="block w-full border border-gray-300 rounded p-2"
         />
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="block w-full border border-gray-300 rounded p-2"
         />
         <input
-          type="text"
+          type="number"
           placeholder="Mobile"
           value={mobileNumber}
           onChange={(e) => setMobileNumber(e.target.value)}

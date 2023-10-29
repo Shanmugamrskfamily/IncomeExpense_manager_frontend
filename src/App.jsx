@@ -11,7 +11,14 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import ForgotPasswordVerification from './pages/ForgotPasswordVerification';
 import LandingPage from './pages/LandingPage';
-
+import Dashboard from './pages/Dashboard';
+import AddIncome from './pages/AddIncome';
+import AddExpense from './pages/AddExpense';
+import AllTransactions from './pages/AllTransactions';
+import AllIncomes from './pages/AllIncomes';
+import EditIncome from './pages/EditIncome';
+import AllExpenses from './pages/AllExpenses';
+import User from './pages/User';
 
 function App() {
   return (
@@ -25,6 +32,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/forgotPasswordVerification" element={<ForgotPasswordVerification />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/addIncome" element={<AddIncome />} />
+        <Route path="/addExpense" element={<AddExpense />} />
+        <Route path="/allTransactions" element={<AllTransactions />} />
+        <Route path="/allIncomes" element={<AllIncomes />} />
+        <Route path="/editIncome" element={<EditIncome />} />
+        <Route path="/allExpenses" element={<AllExpenses />} />
+        <Route path="/user" element={<User />} />
       </Routes>
       <Footer />
     </Router>
