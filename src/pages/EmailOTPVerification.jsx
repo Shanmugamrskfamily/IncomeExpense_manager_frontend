@@ -40,6 +40,7 @@ const EmailOTPVerification = () => {
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow rounded-md">
       <h1 className="text-3xl font-bold mb-4">Email OTP Verification</h1>
+      <h6 className=" font-bold mb-4">check your Email Inbox/ Spam Folder</h6>
       <form onSubmit={handleVerifyOTP} className="space-y-4 flex flex-col items-center">
         <input
           type="text"

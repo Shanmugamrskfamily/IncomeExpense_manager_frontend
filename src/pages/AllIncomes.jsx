@@ -44,28 +44,31 @@ const AllIncomes = () => {
     navigate(`/editIncome`);
   };
 
-  const handleDelete = async (transactionId) => {
+  const handleDelete = async (transactionId, transactionTitle) => {
     const storedUserId = localStorage.getItem('userId');
     const storedToken = localStorage.getItem('token');
 
-    try {
-      const response = await fetch(`http://localhost:7000/api/deleteIncome/${storedUserId}/${transactionId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${storedToken}`,
-        },
-      });
+    const confirmed = window.confirm(`Are you sure you want to delete the transaction "${transactionTitle}"?`);
 
-      if (response.ok) {
-        toast.success('Income deleted successfully');
-        // Remove the deleted transaction from state
-        setIncomeTransactions(prevTransactions => prevTransactions.filter(transaction => transaction._id !== transactionId));
-      } else {
+    if (confirmed) {
+      try {
+        const response = await fetch(`http://localhost:7000/api/deleteIncome/${storedUserId}/${transactionId}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        });
+
+        if (response.ok) {
+          toast.success('Income deleted successfully');
+          setIncomeTransactions(prevTransactions => prevTransactions.filter(transaction => transaction._id !== transactionId));
+        } else {
+          toast.error('Failed to delete income');
+        }
+      } catch (error) {
+        console.error('Error deleting income:', error);
         toast.error('Failed to delete income');
       }
-    } catch (error) {
-      console.error('Error deleting income:', error);
-      toast.error('Failed to delete income');
     }
   };
 
@@ -88,7 +91,7 @@ const AllIncomes = () => {
             </button>
             <button
               className="bg-red-500 text-white py-1 px-4 rounded hover:bg-red-600"
-              onClick={() => handleDelete(transaction._id)}
+              onClick={() => handleDelete(transaction._id, transaction.title)}
             >
               Delete
             </button>

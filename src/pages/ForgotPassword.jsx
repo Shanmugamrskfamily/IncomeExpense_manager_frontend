@@ -27,7 +27,7 @@ const ForgotPassword = () => {
 
       if (response.status === 200) {
         // Request for OTP successful, navigate to verification page
-        toast.success('Password reset link sent to your email.');
+        toast.success('Password reset OTP sent to your email.');
         navigate('/forgotPasswordVerification');
       } else {
         setErrorMessage('Failed to send OTP. Please try again.');

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const EditIncome = () => {
+const EditExpense = () => {
   const [transaction, setTransaction] = useState({
     title: '',
     amount: 0,
@@ -28,7 +28,7 @@ const EditIncome = () => {
 
   const fetchTransactionData = async (userId, transactionId, token) => {
     try {
-      const response = await fetch(`http://localhost:7000/api/incomeTransaction/${userId}/${transactionId}`, {
+      const response = await fetch(`http://localhost:7000/api/expenseTransaction/${userId}/${transactionId}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -38,21 +38,21 @@ const EditIncome = () => {
       if (response.ok) {
         const data = await response.json();
 
-        if (data.incomeTransaction.date) {
-          const formattedDate = new Date(data.incomeTransaction.date).toISOString().split('T')[0];
+        if (data.expenseTransaction.date) {
+          const formattedDate = new Date(data.expenseTransaction.date).toISOString().split('T')[0];
           setTransaction({
-            title: data.incomeTransaction.title || '',
-            amount: data.incomeTransaction.amount || 0,
+            title: data.expenseTransaction.title || '',
+            amount: data.expenseTransaction.amount || 0,
             date: formattedDate || '', // Format the date received from the API
-            category: data.incomeTransaction.category || '',
-            description: data.incomeTransaction.description || '',
+            category: data.expenseTransaction.category || '',
+            description: data.expenseTransaction.description || '',
           });
         } else {
           setTransaction({
-            title: data.incomeTransaction.title || '',
-            amount: data.incomeTransaction.amount || 0,
-            category: data.incomeTransaction.category || '',
-            description: data.incomeTransaction.description || '',
+            title: data.expenseTransaction.title || '',
+            amount: data.expenseTransaction.amount || 0,
+            category: data.expenseTransaction.category || '',
+            description: data.expenseTransaction.description || '',
           });
         }
       } else {
@@ -76,7 +76,7 @@ const EditIncome = () => {
         console.log(body);
       }
 
-      const response = await fetch(`http://localhost:7000/api/editIncome/${storedUserId}/${storedTransactionId}`, {
+      const response = await fetch(`http://localhost:7000/api/editExpense/${storedUserId}/${storedTransactionId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -85,19 +85,18 @@ const EditIncome = () => {
         body: JSON.stringify(body),
 
       });
-
       if (response.ok) {
-        toast.success('Income updated successfully');
+        toast.success('expense updated successfully');
+        console.log(response);
+        debugger;
         localStorage.removeItem('transactionId');
-        console.log(`Response After 2: ${response}`);
-        debugger
-        navigate('/allIncomes');
+        navigate('/allExpenses');
       } else {
-        toast.error('Failed to update income. Please try again.');
+        toast.error('Failed to update expense. Please try again.');
       }
     } catch (error) {
-      toast.error('Failed to update income. Please try again.', error);
-      console.error('Error updating income:', error);
+      toast.error('Failed to update expense. Please try again.', error);
+      console.error('Error updating expense:', error);
     }
   };
 
@@ -108,7 +107,7 @@ const EditIncome = () => {
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Edit Income</h1>
+      <h1 className="text-2xl font-bold mb-4">Edit Expense</h1>
       <form onSubmit={handleUpdate} className="space-y-4">
         <div>
           <input type="text" name="title" value={transaction.title} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" placeholder="Title" />
@@ -126,11 +125,11 @@ const EditIncome = () => {
           <textarea name="description" value={transaction.description} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full h-24" placeholder="Description" />
         </div>
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-          Update Income
+          Update Expense
         </button>
       </form>
     </div>
   );
 };
 
-export default EditIncome;
+export default EditExpense;

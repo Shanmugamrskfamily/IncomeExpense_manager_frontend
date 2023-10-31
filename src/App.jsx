@@ -19,9 +19,13 @@ import AllIncomes from './pages/AllIncomes';
 import EditIncome from './pages/EditIncome';
 import AllExpenses from './pages/AllExpenses';
 import User from './pages/User';
+import EditUser from './pages/EditUser';
+import EditUserOtp from './pages/EditUserOtp';
+import EditExpense from './pages/EditExpense';
 
 function App() {
   return (
+    <div className='App' data-theme="garden">
     <Router>
       <Header />
       <ToastContainer />
@@ -40,9 +44,13 @@ function App() {
         <Route path="/editIncome" element={<EditIncome />} />
         <Route path="/allExpenses" element={<AllExpenses />} />
         <Route path="/user" element={<User />} />
+        <Route path="/editProfile" element={<EditUser />} />
+        <Route path="/editUserOtp" element={<EditUserOtp />} />
+        <Route path="/editExpense" element={<EditExpense />} />
       </Routes>
       <Footer />
     </Router>
+    </div>
   );
 }
 

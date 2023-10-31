@@ -81,9 +81,9 @@ const AddIncome = () => {
 
   return (
     <div className="p-4">
-      <div className="min-h-screen flex justify-center bg-gray-50">
+      <div className="min-h-screen flex justify-center">
         <form onSubmit={handleAddIncome}>
-          <div className="max-w-md w-full p-12 space-y-6 bg-white shadow rounded-md">
+          <div className="max-w-md w-full p-12 space-y-6  rounded-md">
             <h2 className="text-3xl font-bold text-center mb-5">Add Income</h2>
 
             <div className="flex items-center space-x-4">
@@ -115,7 +115,7 @@ const AddIncome = () => {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 placeholder="Date"
-                className="border border-gray-300 rounded p-3 w-full"
+                className="border  rounded p-3 w-full"
                 required
               />
             </div>
@@ -126,7 +126,7 @@ const AddIncome = () => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 placeholder="Category"
-                className="border border-gray-300 rounded p-3 w-full"
+                className="border  rounded p-3 w-full"
                 required
               />
             </div>
@@ -136,7 +136,7 @@ const AddIncome = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
-                className="border border-gray-300 rounded p-3 h-32 w-full"
+                className="border  rounded p-3 h-32 w-full"
                 required
               ></textarea>
             </div>

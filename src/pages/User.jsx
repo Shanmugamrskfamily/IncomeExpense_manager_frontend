@@ -30,7 +30,7 @@ const User = () => {
       if (response.ok) {
         const data = await response.json();
         setUserData(data);
-        toast.success('User Details Loaded Successfully!');
+        // toast.success('User Details Loaded Successfully!');
       } else {
         console.error('Error fetching user data:', response.status);
         toast.error('Error fetching user data:', response.status);
