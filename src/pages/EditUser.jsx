@@ -1,7 +1,10 @@
+//EditUser.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const EditUser = () => {
     const [user, setUser] = useState({
@@ -106,33 +109,34 @@ const EditUser = () => {
       };
 
       return (
-        <div className="p-4 max-w-md mx-auto">
-          <h1 className="text-2xl font-bold mb-4">Edit User Details</h1>
-          <form onSubmit={handleUpdate} className="space-y-4">
+        <div className="container p-4 max-w-md mx-auto">
+          <h1 className="h2 mb-4">Edit User Details</h1>
+          <form onSubmit={handleUpdate} className="d-flex flex-column space-y-4">
             <div>
-              <input type="text" name="title" value={user.name} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" placeholder="name" />
+              <input type="text" name="name" value={user.name} onChange={handleChange} className="form-control mb-2" placeholder="Name" />
             </div>
             <div>
-              <input type="number" name="amount" value={user.mobileNumber} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" placeholder="Amount" />
+              <input type="number" name="mobileNumber" value={user.mobileNumber} onChange={handleChange} className="form-control mb-2" placeholder="Mobile Number" />
             </div>
             <div>
-              <input type="email" name="date" value={user.newEmail} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" />
+              <input type="email" name="newEmail" value={user.newEmail} onChange={handleChange} className="form-control mb-2" placeholder="Email" />
             </div>
             <div>
-          <select name="avatar" value={user.avatar} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full">
-            <option value="">Select Avatar</option>
-            {avatarList.map((avatar, index) => (
-              <option key={index} value={avatar.link}>
-                {avatar.name}
-              </option>
-            ))}
-          </select>
-        </div>
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-              Update User/ Send OTP
+              <select name="avatar" value={user.avatar} onChange={handleChange} className="form-select mb-2">
+                <option value="">Select Avatar</option>
+                {avatarList.map((avatar, index) => (
+                  <option key={index} value={avatar.link}>
+                    {avatar.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Update User / Send OTP
             </button>
           </form>
         </div>
       );
-};
-export default EditUser;
+    };
+    
+    export default EditUser;

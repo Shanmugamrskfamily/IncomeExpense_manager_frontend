@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const AddIncome = () => {
   const [userId, setUserId] = useState('');
@@ -80,74 +80,70 @@ const AddIncome = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="min-h-screen flex justify-center">
-        <form onSubmit={handleAddIncome}>
-          <div className="max-w-md w-full p-12 space-y-6  rounded-md">
-            <h2 className="text-3xl font-bold text-center mb-5">Add Income</h2>
-
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faDollarSign} />
+    <div className="glassmorphism-background">
+      <div className="container p-4">
+        <div className="transaction-card d-flex glass-success justify-content-center">
+          <form onSubmit={handleAddIncome} className="max-w-md w-100 p-12  space-y-6 rounded-md">
+            <div className='bg-primary'>
+              <h2 className="fw-bold text-white text-center mb-5">Add Income</h2>
+            </div>
+            <div className="flex items-center m-2 space-x-4"> 
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
-                className="border border-gray-300 rounded p-3 w-full"
+                className="border border-gray-300 rounded p-3 w-100"
                 required
               />
             </div>
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faDollarSign} />
+            <div className="flex items-center m-2 space-x-4">
               <input
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="Amount"
-                className="border border-gray-300 rounded p-3 w-full"
+                className="border border-gray-300 rounded p-3 w-100"
                 required
               />
             </div>
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faDollarSign} />
+            <div className="flex items-center m-2 space-x-4"> 
               <input
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 placeholder="Date"
-                className="border  rounded p-3 w-full"
+                className="border rounded p-3 w-100"
                 required
               />
             </div>
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faDollarSign} />
+            <div className="flex items-center m-2 space-x-4"> 
               <input
                 type="text"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 placeholder="Category"
-                className="border  rounded p-3 w-full"
+                className="border rounded p-3 w-100"
                 required
               />
             </div>
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faDollarSign} />
+            <div className="flex items-center m-2 space-x-4"> 
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
-                className="border  rounded p-3 h-32 w-full"
+                className="border rounded p-3 h-32 w-100"
                 required
               ></textarea>
             </div>
             <button
               type="submit"
-              className="bg-blue-500 text-white py-3 px-6 rounded hover:bg-blue-600 w-full"
+              className="btn btn-primary py-3 px-6 m-2 w-100"
             >
               Add Income
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

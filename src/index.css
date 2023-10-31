@@ -1,3 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* index.css */
+body {
+  background-image: url("../public/images/background.webp");
+  background-size: cover;
+  background-attachment: fixed; /* Set the background image as fixed while scrolling */
+  min-height: 100vh;
+  background-repeat: no-repeat;
+}
+/* Header.css */
+
+/* Define your hover effects */
+.nav-item a.nav-link:hover {
+  background-color: #343a40; /* Change background color */
+  color: #fff; /* Change text color */
+  transition: all 0.3s; /* Add smooth transition */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block; /* Show dropdown on hover */
+  transition: all 0.3s;
+}
+
+.nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: #343a40; /* Change background color */
+  color: #fff; /* Change text color */
+  transition: all 0.3s; /* Add smooth transition */
+}
+/* Add more hover effects for other elements as needed */
+.glassmorphism-background {
+  /* background-image: url("/path_to_your_image.jpg");
+  background-size: cover;
+  background-attachment: fixed; /* For a fixed background */
+  /* min-height: 100vh;  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px); /* Adjust the blur as needed */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 20px; /* Adjust the border radius */
+}
+/* AllTransactions.css */
+
+.transaction-card {
+  background-color: rgba(255, 255, 255, 0.3); /* Glassmorphism effect */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.glass-success {
+  background-color: rgba(18, 191, 47, 0.5); /* Success or income transaction */
+}
+
+.glass-danger {
+  background-color: rgba(219, 29, 29, 0.5); /* Danger or expense transaction */
+}
+.glass-primary {
+  background-color: rgba(29, 32, 219, 0.5); /* Danger or expense transaction */
+}

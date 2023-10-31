@@ -1,7 +1,10 @@
+//User.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const User = () => {
   const [userData, setUserData] = useState({});
@@ -46,16 +49,16 @@ const User = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mb-4 mt-4">
-      <div className="p-4 border rounded-md bg-green-100 text-center">
-        <h1 className="text-2xl font-bold mb-4">User Information</h1>
-        <p className='font-bold'>Name: {userData.user?.name}</p>
+    <div className="d-flex justify-content-center align-items-center mb-4 mt-4">
+      <div className="p-4 border rounded bg-info text-center">
+        <h1 className="text-2xl font-weight-bold mb-4">User Information</h1>
+        <p className='font-weight-bold'>Name: {userData.user?.name}</p>
         <p>Mobile Number: {userData.user?.mobileNumber}</p>
         <p>Email: {userData.user?.email}</p>
         <p>Password: ************</p>
-        <img src={userData.user?.avatar} alt="User Avatar" className="w-32 h-32 rounded-full mx-auto mt-4" />
+        <img src={userData.user?.avatar} alt="User Avatar" className="w-32 h-32 rounded-circle mx-auto mt-4" />
         <button
-          className="bg-blue-500 text-white py-1 px-4 rounded hover:bg-blue-600 mt-4 block mx-auto"
+          className="btn btn-primary py-1 px-4 rounded hover:bg-primary mt-4 d-block mx-auto"
           onClick={handleEditProfile}>
           Edit Profile
         </button>

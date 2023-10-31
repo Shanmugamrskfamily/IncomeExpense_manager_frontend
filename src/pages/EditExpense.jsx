@@ -1,7 +1,10 @@
+//EditExpense.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const EditExpense = () => {
   const [transaction, setTransaction] = useState({
@@ -63,7 +66,8 @@ const EditExpense = () => {
     }
   };
 
-  const handleUpdate = async () => {
+  const handleUpdate = async (event) => {
+    event.preventDefault();
     try {
       const storedUserId = localStorage.getItem('userId');
       const storedToken = localStorage.getItem('token');
@@ -106,25 +110,25 @@ const EditExpense = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
+    <div className="container mt-4">
       <h1 className="text-2xl font-bold mb-4">Edit Expense</h1>
-      <form onSubmit={handleUpdate} className="space-y-4">
-        <div>
-          <input type="text" name="title" value={transaction.title} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" placeholder="Title" />
+      <form onSubmit={handleUpdate} className="mb-4">
+        <div className="mb-3">
+          <input type="text" name="title" value={transaction.title} onChange={handleChange} className="form-control" placeholder="Title" />
         </div>
-        <div>
-          <input type="number" name="amount" value={transaction.amount} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" placeholder="Amount" />
+        <div className="mb-3">
+          <input type="number" name="amount" value={transaction.amount} onChange={handleChange} className="form-control" placeholder="Amount" />
         </div>
-        <div>
-          <input type="date" name="date" value={transaction.date} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" />
+        <div className="mb-3">
+          <input type="date" name="date" value={transaction.date} onChange={handleChange} className="form-control" />
         </div>
-        <div>
-          <input type="text" name="category" value={transaction.category} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full" placeholder="Category" />
+        <div className="mb-3">
+          <input type="text" name="category" value={transaction.category} onChange={handleChange} className="form-control" placeholder="Category" />
         </div>
-        <div>
-          <textarea name="description" value={transaction.description} onChange={handleChange} className="border border-gray-300 rounded p-2 w-full h-24" placeholder="Description" />
+        <div className="mb-3">
+          <textarea name="description" value={transaction.description} onChange={handleChange} className="form-control" placeholder="Description"></textarea>
         </div>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        <button type="submit" className="btn btn-primary">
           Update Expense
         </button>
       </form>

@@ -2,16 +2,18 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Footer = () => {
   return (
-    <footer className=" p-2 text-center">
+    <footer className="p-2 text-center bg-dark sticky-bottom text-light">
       <p>&copy; 2023 SHANMUGAM R. All rights reserved.</p>
-      <div className="flex justify-center space-x-4">
-        <a href="#" className=" hover:text-gray-300">
+      <div className="d-flex justify-content-center gap-4">
+        <a href="#" className="text-light">
           <i className="fab fa-linkedin"></i>
         </a>
-        <a href="#" className=" hover:text-gray-300">
+        <a href="#" className="text-light">
           <i className="fab fa-github"></i>
         </a>
         {/* Add other social media icons */}

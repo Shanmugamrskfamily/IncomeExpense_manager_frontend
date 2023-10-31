@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import Signup from './pages/Signup';
 import EmailOTPVerification from './pages/EmailOTPVerification';
@@ -22,12 +21,15 @@ import User from './pages/User';
 import EditUser from './pages/EditUser';
 import EditUserOtp from './pages/EditUserOtp';
 import EditExpense from './pages/EditExpense';
+import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   return (
-    <div className='App' data-theme="garden">
+    <div className='App'>
     <Router>
-      <Header />
+      <Header/>
       <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -48,7 +50,7 @@ function App() {
         <Route path="/editUserOtp" element={<EditUserOtp />} />
         <Route path="/editExpense" element={<EditExpense />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
     </div>
   );

@@ -1,8 +1,11 @@
+//ForgotPassword.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -41,18 +44,18 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow rounded-md">
-      <h1 className="text-3xl font-bold mb-4">Forgot Password</h1>
-      <form onSubmit={handleForgotPassword} className="space-y-4 flex flex-col items-center">
+    <div className="container w-50 p-4 bg-white shadow rounded">
+      <h1 className="display-4 mb-4">Forgot Password</h1>
+      <form onSubmit={handleForgotPassword} className="d-flex flex-column align-items-center">
         <input
           type="text"
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="block w-full border border-gray-300 rounded p-2"
+          className="form-control mb-2"
         />
-        {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        {errorMessage && <p className="text-danger small">{errorMessage}</p>}
+        <button type="submit" className="btn btn-primary mb-2">
           Send OTP
         </button>
       </form>

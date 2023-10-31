@@ -1,7 +1,10 @@
+//EditUserOtp.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const EditUserOtp = () => {
   const [otp, setOtp] = useState('');
@@ -71,19 +74,19 @@ const EditUserOtp = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Enter OTP</h1>
-      <form onSubmit={handleOtpSubmit} className="space-y-4">
+    <div className="container w-50 p-4 mx-auto">
+      <h1 className="h2 mb-4">Enter OTP</h1>
+      <form onSubmit={handleOtpSubmit} className="d-flex flex-column space-y-4">
         <div>
           <input
             type="text"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
+            className="form-control mb-2"
             placeholder="Enter OTP"
           />
         </div>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        <button type="submit" className="btn btn-primary">
           Submit OTP
         </button>
       </form>

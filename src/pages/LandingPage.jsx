@@ -1,5 +1,8 @@
+//LandingPage.jsx
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const LandingPage = () => {
     const navigate = useNavigate();
@@ -12,21 +15,21 @@ const LandingPage = () => {
           navigate('/dashboard');
         }
       }, [navigate]);
-  return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-lg p-8 bg-white shadow-lg rounded-lg">
-        <h1 className="text-3xl font-bold mb-6">Welcome to RSK Pettycash Manager</h1>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-          <Link to="/login" className="block bg-blue-500 text-white font-bold py-3 rounded-lg text-center hover:bg-blue-600">
-            Login
-          </Link>
-          <Link to="/signup" className="block bg-green-500 text-white font-bold py-3 rounded-lg text-center hover:bg-green-600">
-            Signup
-          </Link>
+      return (
+        <div className="d-flex align-items-center justify-content-center bg-light" style={{ height: '100vh' }}>
+          <div className="max-w-lg p-4 bg-white shadow rounded">
+            <h1 className="h1 mb-4">Welcome to RSK Pettycash Manager</h1>
+            <div className="row row-cols-1 row-cols-sm-2 g-3">
+              <Link to="/login" className="btn btn-primary d-block rounded-lg text-center">
+                Login
+              </Link>
+              <Link to="/signup" className="btn btn-success d-block rounded-lg text-center">
+                Signup
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-};
+      );
+    };
 
 export default LandingPage;

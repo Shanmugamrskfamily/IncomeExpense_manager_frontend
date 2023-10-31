@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -54,30 +56,30 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full p-6 space-y-6 bg-white shadow rounded-md">
-        <h2 className="text-2xl font-bold text-center">Login</h2>
+    <div className="d-flex align-items-center justify-content-center bg-light" style={{ minHeight: '100vh' }}>
+      <div className="max-w-md w-100 p-4 login-form shadow rounded">
+        <h2 className="h2 text-center font-weight-bold">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 rounded p-2"
+            className="form-control"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 rounded p-2"
+            className="form-control"
           />
-          <button type="submit" className="w-full bg-blue-500 text-white font-bold py-2 rounded">
+          <button type="submit" className="btn btn-primary">
             Login
           </button>
         </form>
         <div className="text-center">
-          <Link to="/forgotPassword" onClick={handleForgotPassword} className="text-blue-500">
+          <Link to="/forgotPassword" onClick={handleForgotPassword} className="text-primary">
             Forgot Password?
           </Link>
         </div>
@@ -85,5 +87,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

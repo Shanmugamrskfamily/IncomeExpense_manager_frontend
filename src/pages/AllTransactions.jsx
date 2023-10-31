@@ -1,7 +1,10 @@
+//AllTransactions.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const AllTransactions = () => {
   const [transactions, setTransactions] = useState([]);
@@ -40,18 +43,19 @@ const AllTransactions = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">All Transactions</h1>
-      <div className="space-y-4">
+    <div className="glassmorphism-background">
+    <div className="container p-4">
+      <h1 className=" font-bold mb-4">All Transactions</h1>
+      <div className="space-y-4 ">
         {transactions.map((transaction) => (
           <div
             key={transaction._id}
-            className={`border p-4 rounded-md ${
-              transaction.type === 'income' ? 'bg-green-100' : 'bg-red-100'
+            className={`transaction-card text-center fw-bold text-white ${
+              transaction.type === 'income' ? 'glass-success' : 'glass-danger'
             }`}
           >
-            <p className="font-bold">Type of Transaction: {transaction.type}</p>
-            <p className="font-bold">Title: {transaction.title}</p>
+            <h4 className="font-weight-bold text-primary">Type of Transaction: {transaction.type}</h4>
+            <p className="font-weight-bold">Title: {transaction.title}</p>
             <p>Amount: {transaction.amount}</p>
             <p>Date: {transaction.date}</p>
             <p>Category: {transaction.category}</p>
@@ -59,6 +63,7 @@ const AllTransactions = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

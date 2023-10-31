@@ -1,8 +1,11 @@
+//Signup.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -75,41 +78,41 @@ const Signup = () => {
   };
 
   return (
-    <div className="mx-auto max-w-lg p-6 bg-white shadow rounded-md">
-      <h1 className="text-3xl font-bold mb-4">Signup</h1>
-      <form onSubmit={handleSignup} className="space-y-4 flex flex-col items-center">
+    <div className="container w-50 p-4 bg-white shadow rounded">
+      <h1 className="display-4 mb-4">Signup</h1>
+      <form onSubmit={handleSignup} className="d-flex flex-column align-items-center">
         <input
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="block w-full border border-gray-300 rounded p-2"
+          className="form-control mb-2"
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="block w-full border border-gray-300 rounded p-2"
+          className="form-control mb-2"
         />
         <input
           type="number"
           placeholder="Mobile"
           value={mobileNumber}
           onChange={(e) => setMobileNumber(e.target.value)}
-          className="block w-full border border-gray-300 rounded p-2"
+          className="form-control mb-2"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="block w-full border border-gray-300 rounded p-2"
+          className="form-control mb-2"
         />
         <select
           value={selectedAvatar}
           onChange={(e) => setSelectedAvatar(e.target.value)}
-          className="block w-full border border-gray-300 rounded p-2"
+          className="form-control mb-2"
         >
           <option value="">Select Avatar</option>
           {avatarList.map((avatar) => (
@@ -118,11 +121,11 @@ const Signup = () => {
             </option>
           ))}
         </select>
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button type="submit" className="btn btn-primary mb-2">
           Signup
         </button>
         <h4>Waiting For Email Verification👇🏻?</h4>
-        <Link to="/verifyEmail" className="text-blue-500 hover:underline">
+        <Link to="/verifyEmail" className="text-primary">
           Verify Email with OTP
         </Link>
       </form>
