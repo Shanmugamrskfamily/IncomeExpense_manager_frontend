@@ -78,7 +78,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="container w-50 p-4 bg-white shadow rounded">
+    <div className="glassmorphism-background">
+    <div className="container w-50 p-4  glass-primary text-white rounded">
       <h1 className="display-4 mb-4">Signup</h1>
       <form onSubmit={handleSignup} className="d-flex flex-column align-items-center">
         <input
@@ -121,7 +122,7 @@ const Signup = () => {
             </option>
           ))}
         </select>
-        <button type="submit" className="btn btn-primary mb-2">
+        <button type="submit" className="btn w-50 btn-primary mb-2">
           Signup
         </button>
         <h4>Waiting For Email Verification👇🏻?</h4>
@@ -129,6 +130,7 @@ const Signup = () => {
           Verify Email with OTP
         </Link>
       </form>
+    </div>
     </div>
   );
 };

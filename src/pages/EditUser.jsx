@@ -70,7 +70,7 @@ const EditUser = () => {
         }
       };
       const handleUpdate = async (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
       
         try {
           const storedUserId = localStorage.getItem('userId');

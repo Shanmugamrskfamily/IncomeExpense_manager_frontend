@@ -77,14 +77,14 @@ const AllIncomes = () => {
   };
 
   return (
-    <div className="glassmorphism-background">
+    <div className="m-5">
     <div className="container p-4">
       <h1 className=" fw-bold text-success text-center mb-4">All Income Transactions</h1>
       <div className="space-y-4 ">
         {incomeTransactions.map((transaction) => (
           <div key={transaction._id} className="transaction-card glass-success text-center fw-bold text-white">
             <h4 className="font-weight-bold text-warning">Title: {transaction.title}</h4>
-            <p>Amount: ₹{transaction.amount}</p>
+            <p>Amount: <i class="fa-solid fa-indian-rupee-sign"></i>{transaction.amount}</p>
             <p>Date: {transaction.date}</p>
             <p>Category: {transaction.category}</p>
             <p>Description: {transaction.description}</p>

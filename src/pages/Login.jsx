@@ -55,36 +55,38 @@ const Login = () => {
     navigate('/forgotPassword');
   };
 
-  return (
-    <div className="d-flex align-items-center justify-content-center bg-light" style={{ minHeight: '100vh' }}>
-      <div className="max-w-md w-100 p-4 login-form shadow rounded">
-        <h2 className="h2 text-center font-weight-bold">Login</h2>
-        <form onSubmit={handleLogin} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="form-control"
-          />
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
-        </form>
-        <div className="text-center">
-          <Link to="/forgotPassword" onClick={handleForgotPassword} className="text-primary">
-            Forgot Password?
-          </Link>
+    return (
+      <div className="d-flex md-4 align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+        <div className="max-w-md w-100 p-4 glass-primary  text-white shadow rounded">
+          <h2 className="h2 text-center font-weight-bold">Login</h2>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="form-control m-2"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="form-control m-2"
+            />
+            <div className='text-center'>
+            <button type="submit" className="btn mt-2 w-50  btn-primary">
+              Login
+            </button>
+            </div>
+          </form>
+          <div className="text-center">
+            <Link to="/forgotPassword" onClick={handleForgotPassword} className="text-primary">
+              Forgot Password?
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-export default Login;
+    );
+  };
+  export default Login;

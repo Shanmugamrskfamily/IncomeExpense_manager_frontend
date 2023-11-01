@@ -81,7 +81,7 @@ const AddExpense = () => {
   };
 
   return (
-    <div className="glassmorphism-background">
+    <div className="mt-5">
     <div className="container p-4">
       <div className="transaction-card d-flex glass-danger justify-content-center">
         <form onSubmit={handleAddExpense} className="max-w-md w-100 p-12  space-y-6 rounded-md">

@@ -123,9 +123,9 @@ const Dashboard = () => {
   }, [totalEarnings, totalExpenses]);
 
   return (
-    <div className="glassmorphism-background">
+    <div className="mt-5">
     <div className="container p-4">
-      <h1 className="display-4 mb-4 fw-bold">Dashboard</h1>
+      <h1 className="display-4 mb-4 fw-bold  text-center">Dashboard</h1>
 
       <div className="row row-cols-1 row-cols-md-3 g-4">
         <div className="col">

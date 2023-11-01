@@ -50,7 +50,7 @@ function App() {
         <Route path="/editUserOtp" element={<EditUserOtp />} />
         <Route path="/editExpense" element={<EditExpense />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
     </div>
   );

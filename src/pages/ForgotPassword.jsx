@@ -44,21 +44,23 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="container w-50 p-4 bg-white shadow rounded">
-      <h1 className="display-4 mb-4">Forgot Password</h1>
-      <form onSubmit={handleForgotPassword} className="d-flex flex-column align-items-center">
-        <input
-          type="text"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="form-control mb-2"
-        />
-        {errorMessage && <p className="text-danger small">{errorMessage}</p>}
-        <button type="submit" className="btn btn-primary mb-2">
-          Send OTP
-        </button>
-      </form>
+    <div className="glassmorphism-background">
+      <div className="container glass-primary w-50 p-4 text-white fw-bold rounded">
+        <h1 className="display-4 mb-4">Forgot Password</h1>
+        <form onSubmit={handleForgotPassword} className="d-flex flex-column align-items-center">
+          <input
+            type="text"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-control mb-2"
+          />
+          {errorMessage && <p className="text-danger small">{errorMessage}</p>}
+          <button type="submit" className="btn btn-primary mb-2">
+            Send OTP
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

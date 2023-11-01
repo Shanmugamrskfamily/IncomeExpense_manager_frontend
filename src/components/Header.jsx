@@ -1,11 +1,19 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const location = useLocation();
+  const [currentLocation, setCurrentLocation] = useState('');
   const userName = localStorage.getItem('userName');
   const avatar = localStorage.getItem('avatar');
+
+  useEffect(() => {
+    setCurrentLocation(location.pathname);
+  }, [location]);
+
 
   const handleLogout = () => {
     localStorage.removeItem('userId');
@@ -16,10 +24,13 @@ const Header = () => {
     window.location.href = '/login';
   };
 
+  const shouldShowLogin = !['/login', '/dashboard','/addIncome','/addExpense','/allTransactions','/allIncomes','/editIncome','/allExpenses','/user','/editProfile','/editUserOtp','/editExpense'].includes(location.pathname);
+  const shouldShowSignup = !['/signup', '/dashboard','/addIncome','/addExpense','/allTransactions','/allIncomes','/editIncome','/allExpenses','/user','/editProfile','/editUserOtp','/editExpense'].includes(location.pathname);
+  const shouldShowdashboard=!['/','/signup','/login','/forgotPassword','/verifyEmail','/forgotPasswordVerification'].includes(location.pathname);
   return (
-    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar sticky-top navbar-expand-lg header-container">
       <Link to="/">
-        <img src="/images/logo.png" width="120" height="80" className="navbar-brand" alt="Brand Logo" />
+        <img src="/images/logo.png" width="120" height="100" className="navbar-brand" alt="Brand Logo" />
       </Link>
       <button
         className="navbar-toggler"
@@ -35,11 +46,23 @@ const Header = () => {
         className="collapse ml-2 navbar-collapse justify-content-end"
         id="navbarNav">
         <ul className="navbar-nav">
+        {shouldShowSignup && (
+            <li className="nav-item active">
+              <Link className="nav-link text-white" to="/signup">Signup</Link>
+            </li>
+          )}
+          {shouldShowLogin && (
+            <li className="nav-item active">
+              <Link className="nav-link text-white" to="/login">Login</Link>
+            </li>
+          )}
+          {shouldShowdashboard && (
+            <>
           <li className="nav-item active">
-            <Link className="nav-link" to="/dashboard">Dashboard</Link>
+            <Link className="nav-link text-white" to="/dashboard">Dashboard</Link>
           </li>
-          <li className="nav-item dropdown me-3">
-            <Link className="nav-link dropdown-toggle" to="#" id="addTransactionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li className="nav-item text-white dropdown me-3">
+            <Link className="nav-link dropdown-toggle text-white" to="#" id="addTransactionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Add Transaction
             </Link>
             <ul className="dropdown-menu" aria-labelledby="addTransactionDropdown">
@@ -48,7 +71,7 @@ const Header = () => {
             </ul>
           </li>
           <li className="nav-item dropdown">
-            <Link className="nav-link dropdown-toggle" id="transactionHistoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <Link className="nav-link dropdown-toggle text-white" id="transactionHistoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Transaction History
             </Link>
             <ul className="dropdown-menu" aria-labelledby="transactionHistoryDropdown">
@@ -59,12 +82,14 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <Link className="nav-link"  to="/user">
-              <img src={avatar} width="50" height="20" alt="Avatar" />
-              <span>{userName}</span></Link>
+              <img src={avatar} width="80" height="40" alt="Avatar" />
+              <span className='text-white'>{userName}</span></Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" type='button' onClick={handleLogout}>Logout</Link>
+          <li className="nav-item text-white">
+            <Link className="nav-link text-white" type='button' onClick={handleLogout}>Logout <i class="fa-solid fa-right-from-bracket"></i></Link>
           </li>
+          </>
+          )}
         </ul>
       </div>
     </nav>

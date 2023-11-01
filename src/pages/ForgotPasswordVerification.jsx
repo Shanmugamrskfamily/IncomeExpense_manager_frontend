@@ -1,14 +1,9 @@
-//ForgotPasswordVerification.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const ForgotPasswordVerification = () => {
-    
   const navigate = useNavigate();
   const [otp, setOtp] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -51,7 +46,8 @@ const ForgotPasswordVerification = () => {
   };
 
   return (
-    <div className="container w-50 p-4 bg-white shadow rounded">
+    <div className="glassmorphism-background">
+    <div className="container glass-primary w-50 p-4 text-white fw-bold rounded">
       <h1 className="display-4 mb-4">Forgot Password Verification</h1>
       <form onSubmit={handleVerifyOTP} className="d-flex flex-column align-items-center">
         <input
@@ -72,6 +68,7 @@ const ForgotPasswordVerification = () => {
           Verify OTP & Set New Password
         </button>
       </form>
+      </div>
     </div>
   );
 };

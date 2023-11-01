@@ -43,9 +43,9 @@ const AllTransactions = () => {
   };
 
   return (
-    <div className="glassmorphism-background">
+    <div className="m-5">
     <div className="container p-4">
-      <h1 className=" font-bold mb-4">All Transactions</h1>
+      <h1 className=" fw-bold text-primary text-center mb-4">All Transactions History</h1>
       <div className="space-y-4 ">
         {transactions.map((transaction) => (
           <div
@@ -56,7 +56,7 @@ const AllTransactions = () => {
           >
             <h4 className="font-weight-bold text-primary">Type of Transaction: {transaction.type}</h4>
             <p className="font-weight-bold">Title: {transaction.title}</p>
-            <p>Amount: {transaction.amount}</p>
+            <p>Amount: <i class="fa-solid fa-indian-rupee-sign"></i>{transaction.amount}</p>
             <p>Date: {transaction.date}</p>
             <p>Category: {transaction.category}</p>
             <p>Description: {transaction.description}</p>

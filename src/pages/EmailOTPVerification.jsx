@@ -41,7 +41,8 @@ const EmailOTPVerification = () => {
   };
 
   return (
-    <div className="container w-50 p-4 bg-white shadow rounded">
+    <div className="glassmorphism-background">
+    <div className="container glass-primary w-50 p-4 text-white fw-bold rounded">
       <h1 className="display-4 mb-4">Email OTP Verification</h1>
       <h6 className="font-weight-bold mb-4">Check your Email Inbox/Spam Folder</h6>
       <form onSubmit={handleVerifyOTP} className="d-flex flex-column align-items-center">
@@ -56,6 +57,7 @@ const EmailOTPVerification = () => {
           Verify OTP
         </button>
       </form>
+    </div>
     </div>
   );
 };
